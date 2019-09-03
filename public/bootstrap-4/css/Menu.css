@@ -1,0 +1,7 @@
+@charset "utf-8";
+.body .container .fixrow .col-md-3 .navbar {
+    background: #e9ecef;
+}
+.body .container .fixrow {
+    padding-left: 15px;
+}

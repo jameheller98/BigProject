@@ -1,0 +1,141 @@
+@charset "utf-8";
+.body .sign .row {
+    margin: 0;
+}
+.body .sign .row .col-lg-6 > div.form-group {
+    background-color: #e9ecef;
+    border: 2px solid #007bff!important;
+}
+.body .sign .row .col-lg-6 > div.form-group > div {
+    padding: 60px;
+}
+.body .sign .row .col-lg-6 > div.form-group > div > .flow input {
+    margin: 15px 0 30px 2px;
+}
+.body .sign .row .col-lg-6 > div.form-group > div .remember input {
+    margin-top: 8px;
+}
+.body .sign .row .col-lg-6 > div.form-group > div .remember label {
+    margin-right: 8px;
+}
+.body .sign .row .col-lg-6 > div.form-group > div div a {
+    padding: 0;
+    margin-top: 20px;
+}
+.body .sign .row .col-lg-6 > div.form-group > div .flow {
+    position: relative;
+    display: flex;
+}
+.body .sign .row .col-lg-6 > div.form-group > div .flow > input {
+    opacity: 0.5;
+    z-index: 2;
+}
+.body .sign .row .col-lg-6 > div.form-group > div .flow .run:first-child {
+    position: absolute;
+    height: 3px;
+    margin-top: 12px;
+    width: 0;
+    right: 0;
+    z-index: 5;
+    transition: 0.5s;
+}
+.body .sign .row .col-lg-6 > div.form-group > div .flow .run:nth-child(2) {
+    width: 3px;
+    height: 0px;
+    top: 14px;
+    position: absolute;
+    margin-left: 0;
+    z-index: 5;
+    transition: 0.25s;
+}
+.body .sign .row .col-lg-6 > div.form-group > div .flow .run:nth-child(4) {
+    left: 0;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 29px;
+    height: 3px;
+    width: 0;
+    z-index: 5;
+    transition: 0.5s;
+}
+.body .sign .row .col-lg-6 > div.form-group > div .flow .run:nth-child(5) {
+    width: 3px;
+    height: 0;
+    bottom: 1px;
+    right: 0;
+    position: absolute;
+    margin-bottom: 30px;
+    margin-right: 0;
+    z-index: 5;
+    transition: 0.25s;
+}
+.body .sign .row .col-lg-6 > div.form-group > div .flow .run1 {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #007bff!important;
+    transition: 0.25s;
+    right: 0;
+    margin-top: 12px;
+    z-index: 5;
+}
+.body .sign .row .col-lg-6 > div.form-group > div .flow .run2 {
+    width: 3px;
+    height: 38px;
+    top: 14px;
+    position: absolute;
+    background: #007bff!important;
+    transition: 0.25s;
+    margin-left: 0;
+    z-index: 5;
+}
+.body .sign .row .col-lg-6 > div.form-group > div .flow .run3 {
+    left: 0;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 29px;
+    height: 3px;
+    width: 100%;
+    background-color: #007bff!important;
+    transition: 0.25s;
+    z-index: 5;
+}
+.body .sign .row .col-lg-6 > div.form-group > div .flow .run4 {
+    width: 3px;
+    height: 38px;
+    bottom: 1px;
+    right: 0;
+    position: absolute;
+    margin-bottom: 30px;
+    transition: 0.25s;
+    background-color: #007bff!important;
+    margin-right: 0;
+    z-index: 5;
+}
+.body .sign .row .col-lg-6 > div.form-group > div .flow .tran1 {
+    position: absolute;
+    color: currentColor;
+    top: 21%;
+    left: 4.5%;
+    z-index: 1;
+    transition: 0.25s;
+}
+.body .sign .row .col-lg-6 > div.form-group > div .flow > span[placeholder]:not([placeholder=""]):empty::before {
+    content: attr(placeholder);
+    font-size: 20px;
+}
+.body .sign .row .col-lg-6:first-child {
+    padding-left: 0;
+}
+.body .sign .row .col-lg-6:last-child {
+    padding-right: 0;
+}
+.tran {
+    position: absolute;
+    top: -18px;
+    color: #007bff;
+    font-weight: 700;
+    transition: 0.25s;
+    z-index: 1;
+    left: 3%;
+}
