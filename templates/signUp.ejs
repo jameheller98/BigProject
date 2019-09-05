@@ -80,12 +80,12 @@
             <div class="row">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6">
-                    <div class="form-group">
-                        <div style="height: 1000px;">
+                    <form class="form-group" method="post" name="form1">
+                        <div style="height: 1000px;" onMouseOut="reset();">
                             <div class="flow">
                                 <span id="run1" class="run"></span>
                                 <span id="run2" class="run"></span>
-                                <input type="text" id="ho" class="form-control" onMouseOver="tran1()" onMouseOut="reset()" value="" onKeyDown="tran1()"/>
+                                <input type="text" name="ho" id="ho" class="form-control" onMouseOver="tran1()" value="" onKeyDown="tran1()"/>
                                 <span id="run3" class="run"></span>
                                 <span id="run4" class="run"></span>
                                 <span class="tran1" id="tran1" placeholder="Họ"></span>
@@ -93,7 +93,7 @@
                             <div class="flow">
                                 <span id="run5" class="run"></span>
                                 <span id="run6" class="run"></span>
-                                <input type="text" id="ten" class="form-control" onMouseOver="tran2()" onMouseOut="reset()" value="" onKeyDown="tran2()"/>
+                                <input type="text" name="ten" id="ten" class="form-control" onMouseOver="tran2()" value="" onKeyDown="tran2()"/>
                                 <span id="run7" class="run"></span>
                                 <span id="run8" class="run"></span>
                                 <span class="tran1" id="tran2" placeholder="Tên"></span>
@@ -101,7 +101,7 @@
                             <div class="flow">
                                 <span id="run9" class="run"></span>
                                 <span id="run10" class="run"></span>
-                                <input type="text" id="username" class="form-control" onMouseOver="tran3()" onMouseOut="reset()" value="" onKeyDown="tran3()"/>
+                                <input type="text" name="username" id="username" class="form-control" onMouseOver="tran3()" value="" onKeyDown="tran3()"/>
                                 <span id="run11" class="run"></span>
                                 <span id="run12" class="run"></span>
                                 <span class="tran1" id="tran3" placeholder="Tên tài khoản"></span>
@@ -109,7 +109,7 @@
                             <div class="flow">
                                 <span id="run13" class="run"></span>
                                 <span id="run14" class="run"></span>
-                                <input type="password" id="password" class="form-control" onMouseOver="tran4()" onMouseOut="reset()" value="" onKeyDown="tran4()"/>
+                                <input type="password" name="password" id="password" class="form-control" onMouseOver="tran4()" value="" onKeyDown="tran4()"/>
                                 <span id="run15" class="run"></span>
                                 <span id="run16" class="run"></span>
                                 <span class="tran1" id="tran4" placeholder="Mật khẩu"></span>
@@ -117,7 +117,7 @@
                             <div class="flow">
                                 <span id="run17" class="run"></span>
                                 <span id="run18" class="run"></span>
-                                <input type="password" id="confirmpassword" class="form-control" onMouseOver="tran5()" onMouseOut="reset()" value="" onKeyDown="tran5()"/>
+                                <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" onMouseOver="tran5()" value="" onKeyDown="tran5()"/>
                                 <span id="run19" class="run"></span>
                                 <span id="run20" class="run"></span>
                                 <span class="tran1" id="tran5" placeholder="Nhập lại mật khẩu"></span>
@@ -125,7 +125,7 @@
                             <div class="flow">
                                 <span id="run21" class="run"></span>
                                 <span id="run22" class="run"></span>
-                                <input type="email" id="email" class="form-control" onMouseOver="tran6()" onMouseOut="reset()" value="" onKeyDown="tran6()"/>
+                                <input type="email" name="email" id="email" class="form-control" onMouseOver="tran6()" value="" onKeyDown="tran6()"/>
                                 <span id="run23" class="run"></span>
                                 <span id="run24" class="run"></span>
                                 <span class="tran1" id="tran6" placeholder="Email"></span>
@@ -133,7 +133,7 @@
                             <div class="flow">
                                 <span id="run25" class="run"></span>
                                 <span id="run26" class="run"></span>
-                                <input type="number" id="numberphone" class="form-control" onMouseOver="tran7()" onMouseOut="reset()" value="" onKeyDown="tran7()"/>
+                                <input type="number" name="numberphone" id="numberphone" class="form-control" onMouseOver="tran7()" value="" onKeyDown="tran7()"/>
                                 <span id="run27" class="run"></span>
                                 <span id="run28" class="run"></span>
                                 <span class="tran1" id="tran7" placeholder="Số điện thoại"></span>
@@ -141,14 +141,14 @@
                             <div class="flow">
                                 <span id="run29" class="run"></span>
                                 <span id="run30" class="run"></span>
-                                <input type="text" id="address" class="form-control" onMouseOver="tran8()" onMouseOut="reset()" value="" onKeyDown="tran8()"/>
+                                <input type="text" name="address" id="address" class="form-control" onMouseOver="tran8()" value="" onKeyDown="tran8()"/>
                                 <span id="run31" class="run"></span>
                                 <span id="run32" class="run"></span>
                                 <span class="tran1" id="tran8" placeholder="Địa chỉ"></span>
                             </div>
-                            <button type="submit" class="btn btn-primary">Đăng ký</button>
+                            <button type="submit" formaction="/signUp/invalite" class="btn btn-primary">Đăng ký</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="col-lg-3"></div>
             </div>

@@ -8,15 +8,15 @@ function tran1() {
     }, 0);
     setTimeout(function() {
         var run2 = document.getElementById("run2");
-        run2.className = run2.className.replace(/\brun\b/g, "run2"); 
+        run2.className = run2.className.replace(/\brun\b/g, "run2");
     }, 250);
     setTimeout(function() {
         var run3 = document.getElementById("run3");
-        run3.className = run3.className.replace(/\brun\b/g, "run3"); 
+        run3.className = run3.className.replace(/\brun\b/g, "run3");
     }, 0);
     setTimeout(function() {
         var run4 = document.getElementById("run4");
-        run4.className = run4.className.replace(/\brun\b/g, "run4"); 
+        run4.className = run4.className.replace(/\brun\b/g, "run4");
     }, 250);
 };
 function tran2() {
@@ -29,15 +29,15 @@ function tran2() {
     }, 0);
     setTimeout(function() {
         var run2 = document.getElementById("run6");
-        run2.className = run2.className.replace(/\brun\b/g, "run2"); 
+        run2.className = run2.className.replace(/\brun\b/g, "run2");
     }, 250);
     setTimeout(function() {
         var run3 = document.getElementById("run7");
-        run3.className = run3.className.replace(/\brun\b/g, "run3"); 
+        run3.className = run3.className.replace(/\brun\b/g, "run3");
     }, 0);
     setTimeout(function() {
         var run4 = document.getElementById("run8");
-        run4.className = run4.className.replace(/\brun\b/g, "run4"); 
+        run4.className = run4.className.replace(/\brun\b/g, "run4");
     }, 250);
 };
 function tran3() {
@@ -50,15 +50,15 @@ function tran3() {
     }, 0);
     setTimeout(function() {
         var run2 = document.getElementById("run10");
-        run2.className = run2.className.replace(/\brun\b/g, "run2"); 
+        run2.className = run2.className.replace(/\brun\b/g, "run2");
     }, 250);
     setTimeout(function() {
         var run3 = document.getElementById("run11");
-        run3.className = run3.className.replace(/\brun\b/g, "run3"); 
+        run3.className = run3.className.replace(/\brun\b/g, "run3");
     }, 0);
     setTimeout(function() {
         var run4 = document.getElementById("run12");
-        run4.className = run4.className.replace(/\brun\b/g, "run4"); 
+        run4.className = run4.className.replace(/\brun\b/g, "run4");
     }, 250);
 };
 function tran4() {
@@ -71,15 +71,15 @@ function tran4() {
     }, 0);
     setTimeout(function() {
         var run2 = document.getElementById("run14");
-        run2.className = run2.className.replace(/\brun\b/g, "run2"); 
+        run2.className = run2.className.replace(/\brun\b/g, "run2");
     }, 250);
     setTimeout(function() {
         var run3 = document.getElementById("run15");
-        run3.className = run3.className.replace(/\brun\b/g, "run3"); 
+        run3.className = run3.className.replace(/\brun\b/g, "run3");
     }, 0);
     setTimeout(function() {
         var run4 = document.getElementById("run16");
-        run4.className = run4.className.replace(/\brun\b/g, "run4"); 
+        run4.className = run4.className.replace(/\brun\b/g, "run4");
     }, 250);
 };
 function tran5() {
@@ -92,15 +92,15 @@ function tran5() {
     }, 0);
     setTimeout(function() {
         var run2 = document.getElementById("run18");
-        run2.className = run2.className.replace(/\brun\b/g, "run2"); 
+        run2.className = run2.className.replace(/\brun\b/g, "run2");
     }, 250);
     setTimeout(function() {
         var run3 = document.getElementById("run19");
-        run3.className = run3.className.replace(/\brun\b/g, "run3"); 
+        run3.className = run3.className.replace(/\brun\b/g, "run3");
     }, 0);
     setTimeout(function() {
         var run4 = document.getElementById("run20");
-        run4.className = run4.className.replace(/\brun\b/g, "run4"); 
+        run4.className = run4.className.replace(/\brun\b/g, "run4");
     }, 250);
 };
 function tran6() {
@@ -113,15 +113,15 @@ function tran6() {
     }, 0);
     setTimeout(function() {
         var run2 = document.getElementById("run22");
-        run2.className = run2.className.replace(/\brun\b/g, "run2"); 
+        run2.className = run2.className.replace(/\brun\b/g, "run2");
     }, 250);
     setTimeout(function() {
         var run3 = document.getElementById("run23");
-        run3.className = run3.className.replace(/\brun\b/g, "run3"); 
+        run3.className = run3.className.replace(/\brun\b/g, "run3");
     }, 0);
     setTimeout(function() {
         var run4 = document.getElementById("run24");
-        run4.className = run4.className.replace(/\brun\b/g, "run4"); 
+        run4.className = run4.className.replace(/\brun\b/g, "run4");
     }, 250);
 };
 function tran7() {
@@ -134,15 +134,15 @@ function tran7() {
     }, 0);
     setTimeout(function() {
         var run2 = document.getElementById("run26");
-        run2.className = run2.className.replace(/\brun\b/g, "run2"); 
+        run2.className = run2.className.replace(/\brun\b/g, "run2");
     }, 250);
     setTimeout(function() {
         var run3 = document.getElementById("run27");
-        run3.className = run3.className.replace(/\brun\b/g, "run3"); 
+        run3.className = run3.className.replace(/\brun\b/g, "run3");
     }, 0);
     setTimeout(function() {
         var run4 = document.getElementById("run28");
-        run4.className = run4.className.replace(/\brun\b/g, "run4"); 
+        run4.className = run4.className.replace(/\brun\b/g, "run4");
     }, 250);
 };
 function tran8() {
@@ -155,15 +155,15 @@ function tran8() {
     }, 0);
     setTimeout(function() {
         var run2 = document.getElementById("run30");
-        run2.className = run2.className.replace(/\brun\b/g, "run2"); 
+        run2.className = run2.className.replace(/\brun\b/g, "run2");
     }, 250);
     setTimeout(function() {
         var run3 = document.getElementById("run31");
-        run3.className = run3.className.replace(/\brun\b/g, "run3"); 
+        run3.className = run3.className.replace(/\brun\b/g, "run3");
     }, 0);
     setTimeout(function() {
         var run4 = document.getElementById("run32");
-        run4.className = run4.className.replace(/\brun\b/g, "run4"); 
+        run4.className = run4.className.replace(/\brun\b/g, "run4");
     }, 250);
 };
 function reset() {
@@ -183,8 +183,8 @@ function reset() {
     var email = document.getElementById("email");
     var sodienthoai = document.getElementById("numberphone");
     var diachi = document.getElementById("address");
-    
-    if(ho.value === "") {
+
+    if(ho.value == "") {
         tran1.className = tran1.className.replace(/\btran\b/g, "tran1");
 
         setTimeout(function() {
@@ -193,7 +193,7 @@ function reset() {
         }, 250);
         setTimeout(function() {
             var run3 = document.getElementById("run3");
-            run3.className = run3.className.replace(/\brun3\b/g, "run"); 
+            run3.className = run3.className.replace(/\brun3\b/g, "run");
 
         }, 0);
         setTimeout(function() {
@@ -204,7 +204,7 @@ function reset() {
             var run1 = document.getElementById("run1");
             run1.className = run1.className.replace(/\brun1\b/g, "run");
         }, 0);
-    }
+    };
     if(ten.value === "") {
         tran2.className = tran2.className.replace(/\btran\b/g, "tran1");
 
@@ -214,7 +214,7 @@ function reset() {
         }, 250);
         setTimeout(function() {
             var run3 = document.getElementById("run7");
-            run3.className = run3.className.replace(/\brun3\b/g, "run"); 
+            run3.className = run3.className.replace(/\brun3\b/g, "run");
 
         }, 0);
         setTimeout(function() {
@@ -235,7 +235,7 @@ function reset() {
         }, 250);
         setTimeout(function() {
             var run3 = document.getElementById("run11");
-            run3.className = run3.className.replace(/\brun3\b/g, "run"); 
+            run3.className = run3.className.replace(/\brun3\b/g, "run");
 
         }, 0);
         setTimeout(function() {
@@ -246,7 +246,7 @@ function reset() {
             var run1 = document.getElementById("run9");
             run1.className = run1.className.replace(/\brun1\b/g, "run");
         }, 0);
-    }  
+    }
     if(pass.value === "") {
         tran4.className = tran4.className.replace(/\btran\b/g, "tran1");
 
@@ -256,7 +256,7 @@ function reset() {
         }, 250);
         setTimeout(function() {
             var run3 = document.getElementById("run15");
-            run3.className = run3.className.replace(/\brun3\b/g, "run"); 
+            run3.className = run3.className.replace(/\brun3\b/g, "run");
 
         }, 0);
         setTimeout(function() {
@@ -268,8 +268,8 @@ function reset() {
             run1.className = run1.className.replace(/\brun1\b/g, "run");
         }, 0);
     }
-    if(email.value === "") {
-        tran6.className = tran6.className.replace(/\btran\b/g, "tran1");
+    if(confirmpass.value === "") {
+        tran5.className = tran5.className.replace(/\btran\b/g, "tran1");
 
         setTimeout(function() {
             var run4 = document.getElementById("run20");
@@ -277,7 +277,7 @@ function reset() {
         }, 250);
         setTimeout(function() {
             var run3 = document.getElementById("run19");
-            run3.className = run3.className.replace(/\brun3\b/g, "run"); 
+            run3.className = run3.className.replace(/\brun3\b/g, "run");
 
         }, 0);
         setTimeout(function() {
@@ -289,8 +289,8 @@ function reset() {
             run1.className = run1.className.replace(/\brun1\b/g, "run");
         }, 0);
     }
-    if(confirmpass.value === "") {
-        tran5.className = tran5.className.replace(/\btran\b/g, "tran1");
+    if(email.value === "") {
+        tran6.className = tran6.className.replace(/\btran\b/g, "tran1");
 
         setTimeout(function() {
             var run4 = document.getElementById("run24");
@@ -298,7 +298,7 @@ function reset() {
         }, 250);
         setTimeout(function() {
             var run3 = document.getElementById("run23");
-            run3.className = run3.className.replace(/\brun3\b/g, "run"); 
+            run3.className = run3.className.replace(/\brun3\b/g, "run");
 
         }, 0);
         setTimeout(function() {
@@ -319,7 +319,7 @@ function reset() {
         }, 250);
         setTimeout(function() {
             var run3 = document.getElementById("run27");
-            run3.className = run3.className.replace(/\brun3\b/g, "run"); 
+            run3.className = run3.className.replace(/\brun3\b/g, "run");
 
         }, 0);
         setTimeout(function() {
@@ -340,7 +340,7 @@ function reset() {
         }, 250);
         setTimeout(function() {
             var run3 = document.getElementById("run31");
-            run3.className = run3.className.replace(/\brun3\b/g, "run"); 
+            run3.className = run3.className.replace(/\brun3\b/g, "run");
 
         }, 0);
         setTimeout(function() {

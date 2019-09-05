@@ -13,7 +13,7 @@
 }
 .scroll {
     top: 0;
-    transition: 0.5s;
+    transition: 0.1s;
     position: fixed;
     z-index: 1500;
     width: 100%;
@@ -23,7 +23,7 @@
     top:32px;
     z-index: 500;
     width: 100%;
-    transition: 0.5s;
+    transition: 0.1s;
 }
 .head .navbar .container .collapse .navbar-nav {
     display: inherit;

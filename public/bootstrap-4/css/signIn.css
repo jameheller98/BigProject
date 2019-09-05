@@ -2,35 +2,35 @@
 .body .sign .row {
     margin: 0;
 }
-.body .sign .row .col-lg-6 > div.form-group {
+.body .sign .row .col-lg-6 > form.form-group {
     background-color: #e9ecef;
     border: 2px solid #007bff!important;
 }
-.body .sign .row .col-lg-6 > div.form-group > div {
+.body .sign .row .col-lg-6 > form.form-group > div {
     padding: 60px;
 }
-.body .sign .row .col-lg-6 > div.form-group > div > .flow input {
+.body .sign .row .col-lg-6 > form.form-group > div > .flow input {
     margin: 15px 0 30px 2px;
 }
-.body .sign .row .col-lg-6 > div.form-group > div .remember input {
+.body .sign .row .col-lg-6 > form.form-group > div .remember input {
     margin-top: 8px;
 }
-.body .sign .row .col-lg-6 > div.form-group > div .remember label {
+.body .sign .row .col-lg-6 > form.form-group > div .remember label {
     margin-right: 8px;
 }
-.body .sign .row .col-lg-6 > div.form-group > div div a {
+.body .sign .row .col-lg-6 > form.form-group > div div a {
     padding: 0;
     margin-top: 20px;
 }
-.body .sign .row .col-lg-6 > div.form-group > div .flow {
+.body .sign .row .col-lg-6 > form.form-group > div .flow {
     position: relative;
     display: flex;
 }
-.body .sign .row .col-lg-6 > div.form-group > div .flow > input {
+.body .sign .row .col-lg-6 > form.form-group > div .flow > input {
     opacity: 0.5;
     z-index: 2;
 }
-.body .sign .row .col-lg-6 > div.form-group > div .flow .run:first-child {
+.body .sign .row .col-lg-6 > form.form-group > div .flow .run:first-child {
     position: absolute;
     height: 3px;
     margin-top: 12px;
@@ -39,7 +39,7 @@
     z-index: 5;
     transition: 0.5s;
 }
-.body .sign .row .col-lg-6 > div.form-group > div .flow .run:nth-child(2) {
+.body .sign .row .col-lg-6 > form.form-group > div .flow .run:nth-child(2) {
     width: 3px;
     height: 0px;
     top: 14px;
@@ -48,7 +48,7 @@
     z-index: 5;
     transition: 0.25s;
 }
-.body .sign .row .col-lg-6 > div.form-group > div .flow .run:nth-child(4) {
+.body .sign .row .col-lg-6 > form.form-group > div .flow .run:nth-child(4) {
     left: 0;
     position: absolute;
     bottom: 0;
@@ -58,7 +58,7 @@
     z-index: 5;
     transition: 0.5s;
 }
-.body .sign .row .col-lg-6 > div.form-group > div .flow .run:nth-child(5) {
+.body .sign .row .col-lg-6 > form.form-group > div .flow .run:nth-child(5) {
     width: 3px;
     height: 0;
     bottom: 1px;
@@ -69,7 +69,7 @@
     z-index: 5;
     transition: 0.25s;
 }
-.body .sign .row .col-lg-6 > div.form-group > div .flow .run1 {
+.body .sign .row .col-lg-6 > form.form-group > div .flow .run1 {
     position: absolute;
     height: 3px;
     width: 100%;
@@ -79,7 +79,7 @@
     margin-top: 12px;
     z-index: 5;
 }
-.body .sign .row .col-lg-6 > div.form-group > div .flow .run2 {
+.body .sign .row .col-lg-6 > form.form-group > div .flow .run2 {
     width: 3px;
     height: 38px;
     top: 14px;
@@ -89,7 +89,7 @@
     margin-left: 0;
     z-index: 5;
 }
-.body .sign .row .col-lg-6 > div.form-group > div .flow .run3 {
+.body .sign .row .col-lg-6 > form.form-group > div .flow .run3 {
     left: 0;
     position: absolute;
     bottom: 0;
@@ -100,7 +100,7 @@
     transition: 0.25s;
     z-index: 5;
 }
-.body .sign .row .col-lg-6 > div.form-group > div .flow .run4 {
+.body .sign .row .col-lg-6 > form.form-group > div .flow .run4 {
     width: 3px;
     height: 38px;
     bottom: 1px;
@@ -112,7 +112,7 @@
     margin-right: 0;
     z-index: 5;
 }
-.body .sign .row .col-lg-6 > div.form-group > div .flow .tran1 {
+.body .sign .row .col-lg-6 > form.form-group > div .flow .tran1 {
     position: absolute;
     color: currentColor;
     top: 21%;
@@ -120,7 +120,7 @@
     z-index: 1;
     transition: 0.25s;
 }
-.body .sign .row .col-lg-6 > div.form-group > div .flow > span[placeholder]:not([placeholder=""]):empty::before {
+.body .sign .row .col-lg-6 > form.form-group > div .flow > span[placeholder]:not([placeholder=""]):empty::before {
     content: attr(placeholder);
     font-size: 20px;
 }
@@ -138,4 +138,9 @@
     transition: 0.25s;
     z-index: 1;
     left: 3%;
+}
+input::-webkit-outer-spin-button,  input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently  some margin are still there even though it's hidden */
 }

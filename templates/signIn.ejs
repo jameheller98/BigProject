@@ -80,12 +80,12 @@
             <div class="row">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6">
-                    <div class="form-group">
-                        <div style="height: 390px;">
+                    <form class="form-group">
+                        <div style="height: 390px;" onMouseOut="reset()">
                             <div class="flow">
                                 <span id="run9" class="run"></span>
                                 <span id="run10" class="run"></span>
-                                <input type="text" id="username" class="form-control" onMouseOver="tran3()" onMouseOut="reset()" value="" onKeyDown="tran3()"/>
+                                <input type="text" id="username" class="form-control" onMouseOver="tran3()" value="" onKeyDown="tran3()"/>
                                 <span id="run11" class="run"></span>
                                 <span id="run12" class="run"></span>
                                 <span class="tran1" id="tran3" placeholder="Tên tài khoản"></span>
@@ -93,7 +93,7 @@
                             <div class="flow">
                                 <span id="run13" class="run"></span>
                                 <span id="run14" class="run"></span>
-                                <input type="password" id="password" class="form-control" onMouseOver="tran4()" onMouseOut="reset()" value="" onKeyDown="tran4()"/>
+                                <input type="password" id="password" class="form-control" onMouseOver="tran4()" value="" onKeyDown="tran4()"/>
                                 <span id="run15" class="run"></span>
                                 <span id="run16" class="run"></span>
                                 <span class="tran1" id="tran4" placeholder="Mật khẩu"></span>
@@ -105,7 +105,7 @@
                             <button type="submit" class="btn btn-primary">Đăng nhập</button>
                             <div><a class="nav-link float-left text-dark" href="#">Bạn quên mật khẩu ?</a></div>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="col-lg-3"></div>
             </div>

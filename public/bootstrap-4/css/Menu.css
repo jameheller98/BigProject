@@ -1,7 +1,49 @@
 @charset "utf-8";
 .body .container .fixrow .col-md-3 .navbar {
     background: #e9ecef;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.body .container .fixrow .col-md-3 .navbar .navbar-nav{
+    width: 100%;
+}
+.body .container .fixrow .col-md-3 .navbar .navbar-nav .nav-item:hover {
+    background-color: rgb(128, 128, 128, 0.6);
+    margin-left: -16px;
+    padding-left: 16px;
+}
+.body .container .fixrow .col-md-3 .navbar .navbar-nav .nav-item a {
+    color: black;
+}
+.body .container .fixrow .col-md-3 .navbar .navbar-nav .nav-item:hover a{
+    color: snow;
+}
+.body .container .fixrow .col-md-3 .navbar .navbar-nav .active {
+    background-color: snow;
+    margin-right: -16px;
+    text-align: right;
+    padding-right: 16px;
+    cursor: default;
+    pointer-events: none;
+}
+.body .container .fixrow .col-md-3 .navbar .navbar-nav .active a{
+    pointer-events: none;
 }
 .body .container .fixrow {
     padding-left: 15px;
+}
+.body .container .fixrow h5 {
+    color: snow;
+    height: 40px;
+    padding-top: 6px;
+    border: 2px solid skyblue;
+    text-align: center;
+}
+
+.body .container .fixrow .col-md-9 .content .row {
+    margin-top: 30px;
+}
+.body .container .fixrow .col-md-9 .content .row .col-md-8 span, p {
+    display: inline-block;
+    font-size: 18px;
 }
