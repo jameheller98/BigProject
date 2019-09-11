@@ -6,20 +6,20 @@ $(".select1").click(function() {
     //Lấy phần tử bấm chuột
     var temp = $("#select1").val();
     var choose_select = $(this);
-    
+
     //lấy nội dung
     var text = choose_select.text();
-    
+
     //gán cho giá trị input text
     $("#select1").val(text);
     var temp1 = $("#select1").val();
-    
+
     //reset select 2 bán, thuê.
     if(temp.indexOf("bán") != temp1.indexOf("bán"))
         $("#select2").val("");
     if(temp.indexOf("thuê") != temp1.indexOf("thuê"))
         $("#select2").val("");
-    
+
     //reset select 3 đất, nhà, căn hộ, mặt bằng.
     if(temp.indexOf("Nhà") != temp1.indexOf("Nhà"))
         $("#select3").val("");
@@ -29,7 +29,7 @@ $(".select1").click(function() {
         $("#select3").val("");
     if(temp.indexOf("Mặt bằng") != temp1.indexOf("Mặt bằng"))
         $("#select3").val("");
-    
+
     if(document.getElementById("select1").value == "Danh mục") {
         //Hủy tác dụng lại khi nhấn Danh mục
         if(document.getElementById("disabled1").className.split(" ").indexOf("disabled") == -1) {
@@ -72,7 +72,7 @@ $(".select1").click(function() {
     if(a.indexOf("Nhà") != -1) {
         $(".select3-1").css("display","");
         $(".select3-1").click(function() {
-            var choose_select = $(this);     
+            var choose_select = $(this);
             var text = choose_select.text();
             $("#select3").val(text);
         });
@@ -80,7 +80,7 @@ $(".select1").click(function() {
     if(a.indexOf("Đất") != -1) {
     $(".select3-2").css("display","");
     $(".select3-2").click(function() {
-        var choose_select = $(this);     
+        var choose_select = $(this);
         var text = choose_select.text();
         $("#select3").val(text);
     });
@@ -88,7 +88,7 @@ $(".select1").click(function() {
     if(a.indexOf("Căn hộ") != -1) {
         $(".select3-3").css("display","");
         $(".select3-3").click(function() {
-            var choose_select = $(this);     
+            var choose_select = $(this);
             var text = choose_select.text();
             $("#select3").val(text);
         });
@@ -96,7 +96,7 @@ $(".select1").click(function() {
     if(a.indexOf("Mặt bằng") != -1) {
         $(".select3-4").css("display","");
         $(".select3-4").click(function() {
-            var choose_select = $(this);     
+            var choose_select = $(this);
             var text = choose_select.text();
             $("#select3").val(text);
         });
@@ -107,5 +107,3 @@ $(".container .row .col-md-3 > form .form-group > nav .collapse ul > li .dropdow
     $(".dropdown-child").css("display","none");
     setTimeout(function(){ $(".dropdown-child").css("display","");}, 100);
 });
-
-    

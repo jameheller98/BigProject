@@ -1,0 +1,18 @@
+@charset "utf-8";
+.popover {
+    text-align: center;
+}
+.popover-header {
+    background-color: #fff3cd;
+    color: #856404;
+}
+.bs-popover-auto[x-placement^=right]>.arrow::after, .bs-popover-right>.arrow::after{
+    border-right-color: #fff3cd;
+}
+
+.pop {
+    position: absolute;
+    top: 0;
+    right: -6%;
+    z-index: 1000;
+}

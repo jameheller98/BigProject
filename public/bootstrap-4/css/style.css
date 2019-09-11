@@ -290,6 +290,14 @@ footer .footer .row .col-lg-8 > div {
     .container .row .col-md-3 > form .form-group > nav .collapse ul > li .dropdown .dropdown-child {
         right: -116px;
     }
+    .container .row .col-md-3 > form .form-group > nav .collapse ul > li .dropdown .dropdown-child > li:first-child:hover {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+    .container .row .col-md-3 > form .form-group > nav .collapse ul > li .dropdown .dropdown-child > li:last-child:hover {
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+    }
 }
 @media screen and (max-width: 992px) {
     .container .row .col-md-9 .carousel .carousel-inner .carousel-item > .img {
@@ -325,7 +333,7 @@ footer .footer .row .col-lg-8 > div {
         float: right;
     }
     .container .row .col-md-3 > form .form-group > nav .collapse ul > li .dropdown > a > input {
-        width: 65px;
+        width: 120px;
     }
     .container .row .col-md-3 > form .form-group > nav .collapse ul > li .dropdown .dropdown-child {
         right: -67px;
