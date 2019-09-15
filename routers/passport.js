@@ -1,68 +1,46 @@
-var express = require('express');
-var bodyParser = require('body-parser')
-var session = require("express-session")
-var Passport = require('passport')
-var LocalStratery = require('passport-local').Strategy
-var fs = require('fs')
-var app = express();
-var router = express.Router();
+// config/passport.js
+const LocalStrategy = require('passport-local').Strategy;
+const User = require('./routers/signup');
 
+module.exports = function(passport) {
+  passport.serializeUser(function(user, done) {
+    done(null, user.id);
+  });
 
-//app.set("view engine", "ejs");
-//app.set("views", "./templates"); 
+  passport.deserializeUser(function(id, done) {
+    User.findById(id, function(err, user) {
+      done(err, user);
+    });
+  });
 
-app.use(bodyParser.urlencoded({extended:true}))
-app.use(session({
-    secret:"mysecret",
-    cookie:{
-        maxAge: 1000*6*5
-    }
-}))
-app.use(Passport.initialize())
-app.use(Passport.session())
+  passport.use('local-signIn', new LocalStrategy({
+    usernameField: 'username',
+    passwordField: 'password',
+    passReqToCallback: true,
+  },
+  function(req, username, password, done) {
+    // callback with email and password from our form
+    // find a user whose email is the same as the forms email
+    // we are checking to see if the user trying to login already exists
+    User.findOne({'local.username': username}, function(err, user) {
+      // if there are any errors, return the error before anything else
+      if (err) {
+        return done(err);
+      }
 
+      // if no user is found, return the message
+      if (!user) {
+        return done(null, false, req.flash('loginMessage', 'No user found.'));
+      } // req.flash is the way to set flashdata using connect-flash
 
-app.route('/signIn')
-.get((req,res)=> res.render('signIn'))
-.post(Passport.authenticate('local',{failureRedirect:'/',successRedirect: '/'}))
+      // if the user is found but the password is wrong
+      if (!user.validPassword(password)) {
+        return done(null, false, req.flash('loginMessage',
+            'Oops! Wrong password.'));
+      } // create the loginMessage and save it to session as flashdata
 
-app.get('/private',(req,res)=>{
-    if(res.authenticate){
-        res.send('welcome to private page')
-    }else{
-        res.send('ban chua dang nhap')
-    }
-});
-
-//app.get('/loginOK',(req,res) => res.send("Ban da dang nhap thanh cong"))
-
-Passport.use(new LocalStratery(
-    (username,password , done) =>{
-        fs.readFile('/userDB.json',(err,data)=>{
-            var db = JSON.parse(data)
-            var userRecord = db.find(user => user.usr == username)
-            if (userRecord && userRecord.pwd == password){
-                return done (null , userRecord)
-            }else{
-                return done(null ,false)
-            }
-        })
-    }
-))
-Passport.serializeUser((user,done)=>{
-    done(null,user.usr)
-})
-
-Passport.deserializeUser((name,done)=>{
-    fs.readFile('/userDB.json',(err,data)=>{
-        var db = JSON.parse(data)
-        var userRecord = db.find(user => user.usr == name)
-        if(userRecord){
-            return done(null, userRecord)
-        }else{
-            return done (null,false)
-        }
-    })
-})
-
-module.exports=router;
+      // all is well, return successful user
+      return done(null, user);
+    });
+  }));
+};
