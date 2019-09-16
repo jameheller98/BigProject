@@ -82,11 +82,16 @@
       <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6">
-          <form class="form-group" action="/signIn" name="formLogin">
+          <form class="form-group" action="/signIn" method="post" name="formLogin">
             <div style="height: 390px;" onmouseleave="reset()">
               <% if(message.length > 0){ %>
               <div class="alert alert-success">
                 <%= message %>
+              </div>
+              <% } %>
+              <% if(message1.length > 0){ %>
+              <div class="alert alert-warning">
+                <%= message1 %>
               </div>
               <% } %>
               <div class="flow">
