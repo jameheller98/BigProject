@@ -16,14 +16,14 @@ require('./config/passport')(passport);
 
 app.use(morgan('dev'));
 app.use(cookieParser());
-app.use(bodyParser.json());
+app.use(bodyParser());
 // sử dụng app.use để sử dụng module body-parser để yêu cầu lấy dữ liệu từ form
 /* eslint object-curly-spacing: ["error", "always"]*/
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 app.use(session({
-  secret: 'ilovecodetheworld',
+  secret: 'userId',
 }));
 app.use(passport.initialize());
 app.use(passport.session());

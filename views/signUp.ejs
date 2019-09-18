@@ -122,7 +122,7 @@
               <div class="flow">
                 <span id="run9" class="run"></span>
                 <span id="run10" class="run"></span>
-                <input type="text" name="username" id="username" class="form-control" autocomplete="off" onmouseover="tran3()" value="" onkeydown="tran3()" />
+                <input type="text" name="username" id="username" class="form-control" autocomplete="username" onmouseover="tran3()" value="" onkeydown="tran3()" />
                 <span id="run11" class="run"></span>
                 <span id="run12" class="run"></span>
                 <span class="tran1" id="tran3" placeholder="Tên tài khoản"></span>
@@ -135,11 +135,16 @@
                 <% } %>
                 <% } %>
                 <% } %>
+                <% if(message2.length > 0){ %>
+                <a class="pop" href="#" title="Lỗi!!!" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="<%= message2 %>">
+                  <img src="../images/icon/error.png" alt="errorIcon" width="15px" height="15px" />
+                </a>
+                <% } %>
               </div>
               <div class="flow">
                 <span id="run13" class="run"></span>
                 <span id="run14" class="run"></span>
-                <input type="password" name="password" id="password" class="form-control" autocomplete="off" onmouseover="tran4()" value="" onkeydown="tran4()" />
+                <input type="password" name="password" id="password" class="form-control" autocomplete="current-password" onmouseover="tran4()" value="" onkeydown="tran4()" />
                 <span id="run15" class="run"></span>
                 <span id="run16" class="run"></span>
                 <span class="tran1" id="tran4" placeholder="Mật khẩu"></span>

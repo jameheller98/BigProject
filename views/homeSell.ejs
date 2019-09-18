@@ -58,8 +58,17 @@
         </div>
         <!--SignupAndSignin-->
         <div class="navbar-toggler-right float-right">
-          <button class="btn btn-crimson btn-focus text-white font-weight-bold" id="signUp">Đăng ký</button>
-          <button class="btn btn-success btn-focus text-white font-weight-bold" id="signIn">Đăng nhập</button>
+          <% if(user) { %>
+            <button class="btn btn-dark btn-focus text-white font-weight-bold" id="logout">Thoát tài khoản: <%= user.username %></button>
+            <script>
+              document.getElementById('logout').onclick = function() {
+                location.href = "/logout";
+              };
+            </script>
+          <% } else { %>
+            <button class="btn btn-crimson btn-focus text-white font-weight-bold" id="signUp">Đăng ký</button>
+            <button class="btn btn-success btn-focus text-white font-weight-bold" id="signIn">Đăng nhập</button>
+          <% } %>
         </div>
       </div>
     </nav>
@@ -75,7 +84,20 @@
             <a class="nav-link text-dark d-inline-block" href="/homeSell">Nhà bán</a>
           </div>
           <div class="col-md-3 navbar-toggler-right">
-            <button class="btn btn-warning text-white font-weight-bold">Đăng tin mua/bán nhà</button>
+            <button class="btn btn-warning text-white font-weight-bold" id="PostBlog">Đăng tin mua/bán nhà</button>
+            <% if(user) { %>
+              <script>
+                document.getElementById('PostBlog').onclick = function() {
+                  location.href = "/PostBlog";
+                };
+              </script>
+            <% } else { %>
+              <script>
+                document.getElementById('PostBlog').onclick = function() {
+                  location.href = "/signIn";
+                };
+              </script>
+            <% } %>
           </div>
         </div>
       </div>

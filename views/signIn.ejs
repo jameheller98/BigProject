@@ -83,7 +83,7 @@
         <div class="col-lg-3"></div>
         <div class="col-lg-6">
           <form class="form-group" action="/signIn" method="post" name="formLogin">
-            <div style="height: 390px;" onmouseleave="reset()">
+            <div style="max-height: 500px;" onmouseleave="reset()">
               <% if(message.length > 0){ %>
               <div class="alert alert-success">
                 <%= message %>
@@ -97,7 +97,7 @@
               <div class="flow">
                 <span id="run9" class="run"></span>
                 <span id="run10" class="run"></span>
-                <input type="text" id="username" class="form-control" autocomplete="off" onmouseover="tran3()" value="" onkeydown="tran3()" />
+                <input type="text" name="username" id="username" class="form-control" autocomplete="off" onmouseover="tran3()" value="" onkeydown="tran3()" />
                 <span id="run11" class="run"></span>
                 <span id="run12" class="run"></span>
                 <span class="tran1" id="tran3" placeholder="Tên tài khoản"></span>
@@ -105,7 +105,7 @@
               <div class="flow">
                 <span id="run13" class="run"></span>
                 <span id="run14" class="run"></span>
-                <input type="password" id="password" class="form-control" autocomplete="off" onmouseover="tran4()" value="" onkeydown="tran4()" />
+                <input type="password" name="password" id="password" class="form-control" autocomplete="off" onmouseover="tran4()" value="" onkeydown="tran4()" />
                 <span id="run15" class="run"></span>
                 <span id="run16" class="run"></span>
                 <span class="tran1" id="tran4" placeholder="Mật khẩu"></span>

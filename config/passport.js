@@ -2,6 +2,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const User = require('../app/models/user');
 
 module.exports = function(passport) {
+  console.log('begin passport!');
   passport.use('local-signin', new LocalStrategy({
     usernameField: 'username',
     passwordField: 'password',
@@ -17,7 +18,7 @@ module.exports = function(passport) {
             'Tên tài khoản không tồn tại!'));
       }
       if (!user.validPassword(password)) {
-        return done(null, false, req.flash('loginMessage', 'Sai mật khẩu'));
+        return done(null, false, req.flash('loginMessage', 'Sai mật khẩu!'));
       }
       return done(null, user);
     });
