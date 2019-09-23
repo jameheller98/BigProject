@@ -20,6 +20,13 @@ module.exports = function(passport) {
       if (!user.validPassword(password)) {
         return done(null, false, req.flash('loginMessage', 'Sai mật khẩu!'));
       }
+      if (req.body.remember) {
+        console.log('remember');
+        req.session.cookie.maxAge = 3*24*60*60*1000;
+      } else {
+        console.log('no remember');
+        req.session.cookie.expires = false;
+      }
       return done(null, user);
     });
   }));

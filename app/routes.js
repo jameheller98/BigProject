@@ -1,10 +1,11 @@
 const request = require('request');
 const cheerio = require('cheerio'); // Module để gọi tìm và trả về các elements
 const User = require('../app/models/user');
+const Postblog = require('../app/models/client');
 /* eslint max-len: ["error", { "ignoreTrailingComments": true, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true }]*/
 
 module.exports = function(app, passport) {
-  app.get('/', function(req, res) {
+  app.get('/', notisAdmin, function(req, res) {
     // Yêu cầu vào trang "http://vnexpress.net/kinh-doanh/bat-dong-san"
     request('http://vnexpress.net/kinh-doanh/bat-dong-san', function(error, response, body) {
       if (error) {
@@ -13,6 +14,7 @@ module.exports = function(app, passport) {
         res.render('index', {
           html: undefined,
           img: undefined,
+          user: req.user,
         });
       } else {
         // không lỗi thực hiện
@@ -31,42 +33,42 @@ module.exports = function(app, passport) {
     });
   });
   // Các router sự dụng .get để truyền dữ liệu
-  app.get('/homeSell', function(req, res) {
+  app.get('/homeSell', notisAdmin, function(req, res) {
     res.render('homeSell', {
       user: req.user,
     }); // Phản hồi về trang homeSell.js
   });
-  app.get('/homeRent', function(req, res) {
+  app.get('/homeRent', notisAdmin, function(req, res) {
     res.render('homeRent', {
       user: req.user,
     });
   });
-  app.get('/apartmentSell', function(req, res) {
+  app.get('/apartmentSell', notisAdmin, function(req, res) {
     res.render('apartmentSell', {
       user: req.user,
     });
   });
-  app.get('/apartmentRent', function(req, res) {
+  app.get('/apartmentRent', notisAdmin, function(req, res) {
     res.render('apartmentRent', {
       user: req.user,
     });
   });
-  app.get('/groundSell', function(req, res) {
+  app.get('/groundSell', notisAdmin, function(req, res) {
     res.render('groundSell', {
       user: req.user,
     });
   });
-  app.get('/groundRent', function(req, res) {
+  app.get('/groundRent', notisAdmin, function(req, res) {
     res.render('groundRent', {
       user: req.user,
     });
   });
-  app.get('/landSell', function(req, res) {
+  app.get('/landSell', notisAdmin, function(req, res) {
     res.render('landSell', {
       user: req.user,
     });
   });
-  app.get('/landRent', function(req, res) {
+  app.get('/landRent', notisAdmin, function(req, res) {
     res.render('landRent', {
       user: req.user,
     });
@@ -99,17 +101,43 @@ module.exports = function(app, passport) {
       message1: req.flash('loginMessage'),
     });
   });
+  app.get('/admin', isAdmin, function(req, res) {
+    Postblog.find({})
+        .then((postblogs) => {
+          res.render('admin', {postblogs: postblogs, user: req.user});
+        })
+        .catch((err) => {
+          console.log('Error: ', err);
+          throw err;
+        });
+  });
   app.post('/signIn', function(req, res, next) {
     if (req.body.username == '' || req.body.password == '') {
       req.flash('loginMessage', 'Yêu cầu nhập tài khoản và mật khẩu!');
       res.redirect('/signIn');
+    } else if (req.body.username == 'admin') {
+      passport.authenticate('local-signin', {
+        successRedirect: '/admin',
+        failureRedirect: '/signIn',
+        failureFlash: true,
+      })(req, res, next);
     } else {
       passport.authenticate('local-signin', {
-        successRedirect: '/profile',
+        successRedirect: '/',
         failureRedirect: '/signIn',
         failureFlash: true,
       })(req, res, next);
     }
+  });
+  app.get('/indexBlog', isLoggedIn, notisAdmin, (req, res) => {
+    Postblog.find({'user': req.user})
+        .then((postblogs) => {
+          res.render('indexBlog', {postblogs: postblogs, user: req.user});
+        })
+        .catch((err) => {
+          console.log('Error: ', err);
+          throw err;
+        });
   });
   app.post('/signUp', function(req, res) {
     res.locals.user = req.session.user;
@@ -142,6 +170,7 @@ module.exports = function(app, passport) {
             email: infoUser.email,
             numberphone: infoUser.numberphone,
             address: infoUser.address,
+            isAdmin: false,
           });
           if (getData.password != '') {
             getData.password = getData.generateHash(getData.password);
@@ -171,6 +200,49 @@ module.exports = function(app, passport) {
       }
     });
   });
+  app.post('/indexBlog', (req, res) => {
+    const newPostblog = new Postblog({
+      content: req.body.content,
+      price: req.body.price,
+      acreage: req.body.acreage,
+      address: req.body.address,
+      user: req.user,
+    });
+    newPostblog.save().then((doc) => {
+      res.redirect('/indexBlog');
+    })
+        .catch((err) => {
+          console.log('Error: ', err);
+          throw err;
+        });
+  });
+  app.get('/update-Blog/:postblogId', isLoggedIn, notisAdmin, (req, res) => {
+    Postblog.findById(req.params.postblogId, (err, postblog) => {
+      if (err) {
+        console.log(err);
+        throw err;
+      }
+      res.render('updateBlog', {postblog: postblog, user: req.user});
+    });
+  });
+  app.delete('/:postblogId', (req, res) => {
+    const postblogId = req.params.postblogId;
+    Postblog.findByIdAndDelete(postblogId, (err, doc) => {
+      if (err) throw err;
+      res.send(doc);
+    });
+  });
+  app.post('/:postblogId', (req, res) => {
+    const postblogId = req.params.postblogId;
+    Postblog.findByIdAndUpdate(
+        {_id: postblogId},
+        {$set: {content: req.body.content, price: req.body.price,
+          acreage: req.body.acreage, address: req.body.address}},
+        {userFindAndModify: false})
+        .then((doc) => {
+          res.redirect('/indexBlog');
+        });
+  });
 };
 const isLoggedIn = function(req, res, next) {
   // Nếu một user đã xác thực, cho đi tiếp
@@ -187,4 +259,16 @@ const isLoggedOut = function(req, res, next) {
   }
   // Nếu một user đã xác thực, cho đi tiếp
   res.redirect('/');
+};
+const isAdmin = function(req, res, next) {
+  if (req.isAuthenticated() && req.user.isAdmin == true) {
+    return next();
+  }
+  res.redirect('/');
+};
+const notisAdmin = function(req, res, next) {
+  if (req.isAuthenticated() && req.user.isAdmin == true) {
+    res.redirect('/admin');
+  }
+  return next();
 };

@@ -1,0 +1,28 @@
+.profile__content {
+  font-size: 19px;
+  width: 50%;
+  background-color: rgba(0, 186, 255, 0.73) !important;
+}
+.profile__ul {
+  margin: 0;
+  padding: 20px;
+  list-style-type: none;
+}
+.profile__li {
+  display: inline-block;
+  width: 100%;
+  margin: 10px;
+}
+.profile__span {
+  display: inline-block;
+  width: 24%;
+  margin-right: 10px;
+  color: #ffffff;
+}
+.profile__user {
+  width: 70%;
+  display: inline-block;
+  background-color: white;
+}
+
+/*# sourceMappingURL=profile.css.map */

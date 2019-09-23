@@ -1,0 +1,77 @@
+.bb, .bb::before, .bb::after {
+  border-radius: 30px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.bb {
+  max-width: 100%;
+  width: 600px;
+  height: 750px;
+  margin: 300px auto;
+  color: #9400d3;
+}
+.bb::before, .bb::after {
+  content: '';
+  z-index: 200;
+  -webkit-box-shadow: inset 0 0 0 3px;
+          box-shadow: inset 0 0 0 3px;
+  -webkit-animation: clipMe 8s linear infinite;
+          animation: clipMe 8s linear infinite;
+}
+.bb::before {
+  -webkit-animation-delay: -4s;
+          animation-delay: -4s;
+}
+
+@-webkit-keyframes clipMe {
+  0%,
+  100% {
+    clip: rect(0px, 600px, 3px, 0px);
+  }
+  25% {
+    clip: rect(0px, 3px, 750px, 0px);
+  }
+  50% {
+    clip: rect(747px, 600px, 750px, 0px);
+  }
+  75% {
+    clip: rect(0px, 600px, 750px, 597px);
+  }
+}
+
+@keyframes clipMe {
+  0%,
+  100% {
+    clip: rect(0px, 600px, 3px, 0px);
+  }
+  25% {
+    clip: rect(0px, 3px, 750px, 0px);
+  }
+  50% {
+    clip: rect(747px, 600px, 750px, 0px);
+  }
+  75% {
+    clip: rect(0px, 600px, 750px, 597px);
+  }
+}
+html,
+body {
+  height: 100%;
+}
+
+body {
+  position: relative;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/*# sourceMappingURL=test.css.map */

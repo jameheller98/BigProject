@@ -68,7 +68,7 @@ const userSchema = new mongoose.Schema({
     required: [true, 'Trường "Email" không được để trống!'],
   },
   numberphone: {
-    type: Number,
+    type: String,
     validate: {
       validator: function(v) {
         // Kiểm tra email phải có @ và không được viết liền kề 2 dấu ".."
@@ -83,6 +83,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Trường "Địa chỉ" không được để trống!'],
   },
+  isAdmin: Boolean,
 });
 
 userSchema.methods.generateHash = function(password) {

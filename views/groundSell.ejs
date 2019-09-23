@@ -59,12 +59,20 @@
         <!--SignupAndSignin-->
         <div class="navbar-toggler-right float-right">
           <% if(user) { %>
-            <button class="btn btn-dark btn-focus text-white font-weight-bold" id="logout">Thoát tài khoản: <%= user.username %></button>
-            <script>
-              document.getElementById('logout').onclick = function() {
-                location.href = "/logout";
-              };
-            </script>
+          <button class="btn btn-dark btn-focus text-white font-weight-bold" id="profileBlog">Bài đăng cá nhân</button>
+          <button class="btn btn-dark btn-focus text-white font-weight-bold" id="profile">Trang cá nhân</button>
+          <button class="btn btn-dark btn-focus text-white font-weight-bold" id="logout">Thoát tài khoản: <%= user.username %></button>
+          <script>
+            document.getElementById('logout').onclick = function() {
+              location.href = "/logout";
+            };
+            document.getElementById('profile').onclick = function() {
+              location.href = "/profile";
+            };
+            document.getElementById('profileBlog').onclick = function() {
+              location.href = "/indexBlog";
+            };
+          </script>
           <% } else { %>
             <button class="btn btn-crimson btn-focus text-white font-weight-bold" id="signUp">Đăng ký</button>
             <button class="btn btn-success btn-focus text-white font-weight-bold" id="signIn">Đăng nhập</button>
