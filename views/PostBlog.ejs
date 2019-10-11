@@ -118,7 +118,7 @@
           <h2>Nhập thông tin cần mua/bán</h2>
         </div>
         <div class="post-blog__content bb">
-          <form class="form-blog" action="/indexBlog" method="post">
+          <form class="form-blog" action="/indexBlog" enctype="multipart/form-data" method="post">
             <div class="form-blog__group">
               <label class="form-blog__label" for="content">Nhập nội dung mua/bán bất động sản:</label>
               <textarea class="form-blog__input" name="content" id="content" rows="8" cols="80"></textarea>
@@ -126,22 +126,71 @@
             <div class="form-blog__row">
               <div class="form-blog__group form-blog__group--col">
                 <label class="form-blog__label" for="price">Nhập giá:</label>
-                <input class="form-blog__input"type="text" name="price" id="price" placeholder="VND">
+                <input class="form-blog__input" type="text" name="price" id="price" placeholder="(VND)">
               </div>
               <div class="form-blog__group form-blog__group--col">
                 <label class="form-blog__label" for="acreage">Nhập diện tích:</label>
-                <input class="form-blog__input" type="text" name="acreage" id="acreage" placeholder="m2">
+                <input class="form-blog__input" type="text" name="acreage" id="acreage" placeholder="m²">
               </div>
             </div>
             <div class="form-blog__group">
               <label class="form-blog__label" for="address">Nhập địa chỉ:</label>
               <input class="form-blog__input" type="text" name="address" id="address">
             </div>
-            <div class="form-blog__group">
-              <label class="form-blog__label" for="file">Chọn file ảnh đính kèm:</label>
-              <input class="form-blog__input" type="file" name="file" id="file">
+            <div class="form-blog__row">
+              <div class="form-blog__group form-blog__group--col">
+                <label class="form-blog__label" for="role">Chọn mục lục:</label>
+                <select class="form-blog__select" name="role">
+                  <option value="homeSell">Nhà bán</option>
+                  <option value="landSell">Đất bán</option>
+                  <option value="apartmentSell">Căn hộ bán</option>
+                  <option value="groundSell">Mặt bằng bán</option>
+                  <option value="homeRent">Nhà thuê</option>
+                  <option value="landRent">Đất thuê</option>
+                  <option value="apartmentRent">Căn hộ thuê</option>
+                  <option value="groundRent">Mặt bằng thuê</option>
+                </select>
+              </div>
+              <div class="form-blog__group form-blog__group--col">
+                <label class="form-blog__label" for="city">Chọn thành phố:</label>
+                <select class="form-blog__select" name="city">
+                  <option value="HoChiMinh">Hồ Chí Minh</option>
+                  <option value="DaLat">Đà Lạt</option>
+                  <option value="HaNoi">Hà Nội</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-blog__row">
+              <div class="form-blog__group form-blog__group--col">
+                <input class="form-blog__input form-blog__input--file" type="file" name="file" id="file">
+                <label class="form-blog__label" for="file"><span>Chọn file ảnh</span></label>
+              </div>
               <button class="form-blog__button">Gửi thông tin</button>
             </div>
+            <script>
+              var inputs = document.querySelectorAll( '.form-blog__input--file' );
+
+              Array.prototype.forEach.call( inputs, function( input ) {
+                var label = input.nextElementSibling,
+                            labelVal = label.innerHTML;
+
+                input.addEventListener( 'change', function( e ) {
+                  var fileName = '';
+
+                  if ( this.files && this.files.length > 1 ) {
+                    fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+                  } else {
+                    fileName = e.target.value.split( '\\' ).pop();
+                  }
+
+                  if ( fileName ) {
+                    label.querySelector( 'span' ).innerHTML = fileName;
+                  } else {
+                    label.innerHTML = labelVal;
+                  }
+                });
+              });
+            </script>
           </form>
         </div>
       </div>

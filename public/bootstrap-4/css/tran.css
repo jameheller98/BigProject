@@ -1,4 +1,4 @@
-.bb, .bb::before, .bb::after {
+.bb , .bb::after {
   border-radius: 30px;
   position: absolute;
   top: 0;
@@ -10,21 +10,18 @@
 .bb {
   max-width: 100%;
   width: 600px;
-  height: 750px;
+  height: 850px;
   margin: 300px auto;
-  color: #9400d3;
+  color: white;
 }
-.bb::before, .bb::after {
+
+.bb::after {
   content: '';
   z-index: 200;
   -webkit-box-shadow: inset 0 0 0 3px;
           box-shadow: inset 0 0 0 3px;
   -webkit-animation: clipMe 8s linear infinite;
           animation: clipMe 8s linear infinite;
-}
-.bb::before {
-  -webkit-animation-delay: -4s;
-          animation-delay: -4s;
 }
 
 @-webkit-keyframes clipMe {
@@ -33,13 +30,13 @@
     clip: rect(0px, 600px, 3px, 0px);
   }
   25% {
-    clip: rect(0px, 3px, 750px, 0px);
+    clip: rect(0px, 3px, 850px, 0px);
   }
   50% {
-    clip: rect(747px, 600px, 750px, 0px);
+    clip: rect(848px, 600px, 850px, 0px);
   }
   75% {
-    clip: rect(0px, 600px, 750px, 597px);
+    clip: rect(0px, 600px, 850px, 597px);
   }
 }
 
@@ -49,13 +46,13 @@
     clip: rect(0px, 600px, 3px, 0px);
   }
   25% {
-    clip: rect(0px, 3px, 750px, 0px);
+    clip: rect(0px, 3px, 850px, 0px);
   }
   50% {
-    clip: rect(747px, 600px, 750px, 0px);
+    clip: rect(848px, 600px, 850px, 0px);
   }
   75% {
-    clip: rect(0px, 600px, 750px, 597px);
+    clip: rect(0px, 600px, 850px, 597px);
   }
 }
 html,

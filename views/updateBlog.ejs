@@ -139,6 +139,64 @@
               <label for="address">Nhập địa chỉ:</label>
               <input class="form-control" type="text" name="address" id="address" value="<%= postblog.address %>">
             </div>
+            <div class="form-group">
+              <label for="role">Chọn mục lục:</label>
+              <select class="form-control" name="role">
+                <option value="<%= postblog.role %>" selected>
+                  <% if(postblog.role == 'homeSell') { %>Nhà bán<%}%>
+                  <% if(postblog.role == 'apartmentSell') { %>Căn hộ bán<%}%>
+                  <% if(postblog.role == 'groundSell') { %>Mặt bằng bán<%}%>
+                  <% if(postblog.role == 'landSell') { %>Đất bán<%}%>
+                  <% if(postblog.role == 'homeRent') { %>Nhà thuê<%}%>
+                  <% if(postblog.role == 'apartmentRent') { %>Căn hộ thuê<%}%>
+                  <% if(postblog.role == 'groundRent') { %>Mặt bằng thuê<%}%>
+                  <% if(postblog.role == 'landRent') { %>Đất thuê<%}%>
+                </option>
+                <% if (postblog.role != 'homeSell') {%>
+                  <option value="homeSell">Nhà bán</option>
+                <% } %>
+                <% if (postblog.role != 'landSell') {%>
+                  <option value="landSell">Đất bán</option>
+                <% } %>
+                <% if (postblog.role != 'apartmentSell') {%>
+                  <option value="apartmentSell">Căn hộ bán</option>
+                <% } %>
+                <% if (postblog.role != 'groundSell') {%>
+                  <option value="groundSell">Mặt bằng bán</option>
+                <% } %>
+                <% if (postblog.role != 'homeRent') {%>
+                  <option value="homeRent">Nhà thuê</option>
+                <% } %>
+                <% if (postblog.role != 'landRent') {%>
+                  <option value="landRent">Đất thuê</option>
+                <% } %>
+                <% if (postblog.role != 'apartmentRent') {%>
+                  <option value="apartmentRent">Căn hộ thuê</option>
+                <% } %>
+                <% if (postblog.role != 'groundRent') {%>
+                  <option value="groundRent">Mặt bằng thuê</option>
+                <% } %>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="city">Chọn thành phố:</label>
+              <select class="form-control" name="city">
+                <option value="<%= postblog.city %>">
+                  <% if(postblog.city == 'HoChiMinh') {%>Hồ Chí Minh<%}%>
+                  <% if(postblog.city == 'DaLat') {%>Đà Lạt<%}%>
+                  <% if(postblog.city == 'HaNoi') {%>Hà Nội<%}%>
+                </option>
+                <% if (postblog.city != 'HoChiMinh') { %>
+                  <option value="HoChiMinh">Hồ Chí Minh</option>
+                <% } %>
+                <% if (postblog.city != 'DaLat') { %>
+                  <option value="DaLat">Đà Lạt</option>
+                <% } %>
+                <% if (postblog.city != 'HaNoi') { %>
+                  <option value="HaNoi">Hà Nội</option>
+                <% } %>
+              </select>
+            </div>
             <input id="update-btn" class="btn btn-primary" type="submit" value="SAVE">
             <input id="delete-btn" class="btn btn-secondary" type="button" value="DELETE" onclick="handleDeletePostblog('<%= postblog._id %>')">
           </form>

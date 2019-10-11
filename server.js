@@ -1,16 +1,24 @@
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
+const express = require('express'); // yêu cầu module express
+const app = express(); // biến app khai báo để thực thi file ejs
+const port = process.env.PORT || 3000; // khai báo Port
 const mongoose = require('mongoose'); // require module mongoose
 const passport = require('passport');
 const flash = require('connect-flash');
-const morgan = require('morgan');
+const morgan = require('morgan'); // yêu cầu module morgan
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser'); // yêu cầu module body-parser để lấy dữ liệu từ form
 const session = require('express-session');
+const multer = require('multer'); // yêu cầu module multer
 const configDB = require('./config/database');
+const uploadPost = multer({
+  dest: 'public/uploads/post',
+});
+const uploadUser = multer({
+  dest: 'public/uploads/user',
+});
 // mongoose
-mongoose.connect(configDB.url);
+mongoose.connect(configDB.url,
+    { useNewUrlParser: true, useUnifiedTopology: true });
 /* eslint max-len: ["error", { "ignoreStrings": true }]*/
 require('./config/passport')(passport);
 
@@ -29,7 +37,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-require('./app/routes.js')(app, passport);
+require('./app/routes.js')(app, passport, uploadPost, uploadUser);
 
 // Lắng nghe port 3000
 app.listen(port);

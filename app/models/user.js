@@ -83,6 +83,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Trường "Địa chỉ" không được để trống!'],
   },
+  image: String,
   isAdmin: Boolean,
 });
 

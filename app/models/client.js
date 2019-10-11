@@ -17,6 +17,22 @@ const postblog = new mongoose.Schema({
     type: String,
     required: [true, 'Yêu cầu nhập địa chỉ!'],
   },
+  upload: {
+    type: String,
+    required: [true, 'Yêu cầu nhập địa chỉ!'],
+  },
+  role: {
+    type: String,
+    enum: ['homeSell', 'homeRent', 'apartmentSell', 'apartmentRent',
+      'groundSell', 'groundRent', 'landSell', 'landRent'],
+    required: true,
+  },
+  city: {
+    type: String,
+    enum: ['HoChiMinh', 'DaLat', 'HaNoi'],
+    required: true,
+  },
+  check: Boolean,
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

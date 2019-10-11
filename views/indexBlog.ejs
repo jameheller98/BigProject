@@ -123,6 +123,8 @@
             <th>Giá</th>
             <th>Diện tích</th>
             <th>Địa chỉ</th>
+            <th>Mục lục</th>
+            <th>Thành phố</th>
             <th>Chỉnh sửa</th>
           </tr>
         </thead>
@@ -130,9 +132,30 @@
         <tr ondblclick="handleUpdatePostblog('<%= entry._id %>')">
           <td><%= entry._id %></td>
           <td><%= entry.content %></td>
-          <td><%= entry.price %> (VND)</td>
+          <td>
+            <% if (entry.price >= 1000000000) { %>
+              <%= entry.price / 1000000000 %> tỷ (VND)
+            <% } else if (entry.price >= 1000000) { %>
+              <%= entry.price / 1000000 %> triệu (VND)
+            <% } %>
+          </td>
           <td><%= entry.acreage %> m<sup>2</sup></td>
           <td><%= entry.address %></td>
+          <td>
+            <% if(entry.role == 'homeSell') { %>Nhà bán<%}%>
+            <% if(entry.role == 'apartmentSell') { %>Căn hộ bán<%}%>
+            <% if(entry.role == 'groundSell') { %>Mặt bằng bán<%}%>
+            <% if(entry.role == 'landSell') { %>Đất bán<%}%>
+            <% if(entry.role == 'homeRent') { %>Nhà thuê<%}%>
+            <% if(entry.role == 'apartmentRent') { %>Căn hộ thuê<%}%>
+            <% if(entry.role == 'groundRent') { %>Mặt bằng thuê<%}%>
+            <% if(entry.role == 'landRent') { %>Đất thuê<%}%>
+          </td>
+          <td>
+            <% if(entry.city == 'HoChiMinh') {%>Hồ Chí Minh<%}%>
+            <% if(entry.city == 'DaLat') {%>Đà Lạt<%}%>
+            <% if(entry.city == 'HaNoi') {%>Hà Nội<%}%>
+          </td>
           <td>
             <input class="btn btn-primary" type="button" value="Cập nhật" onclick="handleUpdatePostblog('<%= entry._id %>')">
           </td>

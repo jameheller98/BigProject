@@ -19,8 +19,7 @@
     };
   </script>
   <div class="body">
-    <div class="container">
-      <h1>Quản lý bài đăng</h1>
+      <h1>Danh sách bài đăng</h1>
       <table class="table table-hover">
         <thead>
           <tr>
@@ -29,6 +28,9 @@
             <th>Giá</th>
             <th>Diện tích</th>
             <th>Địa chỉ</th>
+            <th>Đường dẫn ảnh</th>
+            <th>Mục lục</th>
+            <th>Kiểm tra</th>
             <th>Chỉnh sửa</th>
           </tr>
         </thead>
@@ -39,6 +41,24 @@
           <td><%= entry.price %> (VND)</td>
           <td><%= entry.acreage %> m<sup>2</sup></td>
           <td><%= entry.address %></td>
+          <td><%= entry.upload %></td>
+          <td>
+            <% if(entry.role == 'homeSell') { %><%= 'Nhà bán' %><%}%>
+            <% if(entry.role == 'apartmentSell') { %><%= 'Căn hộ bán' %><%}%>
+            <% if(entry.role == 'groundSell') { %><%= 'Mặt bằng bán' %><%}%>
+            <% if(entry.role == 'landSell') { %><%= 'Đất bán' %><%}%>
+            <% if(entry.role == 'homeRent') { %><%= 'Nhà thuê' %><%}%>
+            <% if(entry.role == 'apartmentRent') { %><%= 'Căn hộ thuê' %><%}%>
+            <% if(entry.role == 'groundRent') { %><%= 'Mặt bằng thuê' %><%}%>
+            <% if(entry.role == 'landRent') { %><%= 'Đất thuê' %><%}%>
+          </td>
+          <td>
+            <% if(entry.check == true) { %>
+              <%= 'Duyệt' %>
+            <% } else { %>
+              <%= 'Chưa duyệt' %>
+            <% } %>
+          </td>
           <td>
             <input class="btn btn-primary" type="button" value="Cập nhật" onclick="handleUpdatePostblog('<%= entry._id %>')">
           </td>
@@ -47,10 +67,9 @@
       </table>
       <script>
         function handleUpdatePostblog(value) {
-          $(location).attr('href', '/update-Blog/' + value);
+          $(location).attr('href', '/update-admin/' + value);
         }
       </script>
-    </div>
   </div>
   <script src="../bootstrap-4/js/jquery.min.js" type="text/javascript"></script>
   <script src="../bootstrap-4/js/popper.min.js" type="text/javascript"></script>

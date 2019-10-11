@@ -130,20 +130,36 @@
         <div class="col-md-9">
           <h5 class="bg-primary" style="margin: 0; height: 40px;">Đất bán</h5>
           <div class="content">
-            <div class="row">
-              <div class="col-md-4">
-                <a href="#"><img class="img-fluid" src="../images/batdongsan/Land/Land1.jpg" alt="Land1" /></a>
+            <% postblogs.forEach((entry) => { %>
+              <% if(entry.check == true && entry.role == 'landSell') { %>
+              <div class="row">
+                <div class="col-md-4">
+                  <a href="#"><img class="img-fluid" src="../uploads/post/<%= entry.upload %>" alt="Home1" /></a>
+                </div>
+                <div class="col-md-8">
+                  <a class="nav-link text-dark" href="#">
+                    <h4><%= entry.content %></h4>
+                  </a>
+                  <span>Giá: </span>
+                  <p>
+                    <% if (entry.price >= 1000000000) { %>
+                      <%= entry.price / 1000000000 %> tỷ (VND)
+                    <% } else if (entry.price >= 1000000) { %>
+                      <%= entry.price / 1000000 %> triệu (VND)
+                    <% } %>
+                  </p>
+                  <span style="margin-left:10px;">Diện tích: </span>
+                  <p><%= entry.acreage %>m<sup>2</sup></p>
+                  <span style="margin-left:10px;">Thành phố: </span>
+                  <p>
+                    <% if(entry.city == 'HoChiMinh') {%> Hồ Chí Minh <%}%>
+                    <% if(entry.city == 'DaLat') {%> Đà Lạt <%}%>
+                    <% if(entry.city == 'HaNoi') {%> Hà Nội <%}%>
+                  </p>
+                </div>
               </div>
-              <div class="col-md-8">
-                <a class="nav-link text-dark" href="#">
-                  <h4>Bán đất nền Đường số 6m đường rộng thông thoáng Huyện Bình Chánh -Sổ hồng chính chủ -pháp lý minh bạch-rõ ràng</h4>
-                </a>
-                <span>Giá: </span>
-                <p>6,5 tỷ</p>
-                <span style="margin-left:10px;">Diện tích: </span>
-                <p>100m<sup>2</sup></p>
-              </div>
-            </div>
+              <% } %>
+            <% }) %>
             <div class="row">
               <div class="col-md-4">
                 <a href="#"><img class="img-fluid" src="../images/batdongsan/Land/Land2.jpg" alt="Land2" /></a>

@@ -4,7 +4,7 @@ const User = require('../app/models/user');
 const Postblog = require('../app/models/client');
 /* eslint max-len: ["error", { "ignoreTrailingComments": true, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true }]*/
 
-module.exports = function(app, passport) {
+module.exports = function(app, passport, uploadPost, uploadUser) {
   app.get('/', notisAdmin, function(req, res) {
     // Yêu cầu vào trang "http://vnexpress.net/kinh-doanh/bat-dong-san"
     request('http://vnexpress.net/kinh-doanh/bat-dong-san', function(error, response, body) {
@@ -23,55 +23,129 @@ module.exports = function(app, passport) {
         const ds = $(body).find('.title_news');
         // từ dữ liệu tìm kiếm class vne_lazy_image
         const img = $(body).find('.vne_lazy_image');
-        res.render('index', {
-          html: ds,
-          img: img,
-          user: req.user,
-        });
+        Postblog.find({})
+            .then((postblogs) => {
+              res.render('index', {
+                html: ds,
+                img: img,
+                user: req.user,
+                postblogs: postblogs,
+              });
+            })
+            .catch((err) => {
+              console.log('Error: ', err);
+              throw err;
+            });
         // Trả về trang chủ và lưu dữ liệu vào 2 object html và img
       }
     });
   });
   // Các router sự dụng .get để truyền dữ liệu
+  // Định nghĩa đường dẫn để truy cập vào một trang(file).
   app.get('/homeSell', notisAdmin, function(req, res) {
-    res.render('homeSell', {
-      user: req.user,
-    }); // Phản hồi về trang homeSell.js
+    Postblog.find({})
+        .then((postblogs) => {
+          // res.render dùng để lấy file cần tải ví dụ ở đây homeSell.ejs
+          res.render('homeSell', {
+            postblogs: postblogs,
+            user: req.user,
+          });
+        })
+        .catch((err) => {
+          console.log('Error: ', err);
+          throw err;
+        });
   });
   app.get('/homeRent', notisAdmin, function(req, res) {
-    res.render('homeRent', {
-      user: req.user,
-    });
+    Postblog.find({})
+        .then((postblogs) => {
+          res.render('homeRent', {
+            postblogs: postblogs,
+            user: req.user,
+          });
+        })
+        .catch((err) => {
+          console.log('Error: ', err);
+          throw err;
+        });
   });
   app.get('/apartmentSell', notisAdmin, function(req, res) {
-    res.render('apartmentSell', {
-      user: req.user,
-    });
+    Postblog.find({})
+        .then((postblogs) => {
+          res.render('apartmentSell', {
+            postblogs: postblogs,
+            user: req.user,
+          });
+        })
+        .catch((err) => {
+          console.log('Error: ', err);
+          throw err;
+        });
   });
   app.get('/apartmentRent', notisAdmin, function(req, res) {
-    res.render('apartmentRent', {
-      user: req.user,
-    });
+    Postblog.find({})
+        .then((postblogs) => {
+          res.render('apartmentRent', {
+            postblogs: postblogs,
+            user: req.user,
+          });
+        })
+        .catch((err) => {
+          console.log('Error: ', err);
+          throw err;
+        });
   });
   app.get('/groundSell', notisAdmin, function(req, res) {
-    res.render('groundSell', {
-      user: req.user,
-    });
+    Postblog.find({})
+        .then((postblogs) => {
+          res.render('groundSell', {
+            postblogs: postblogs,
+            user: req.user,
+          });
+        })
+        .catch((err) => {
+          console.log('Error: ', err);
+          throw err;
+        });
   });
   app.get('/groundRent', notisAdmin, function(req, res) {
-    res.render('groundRent', {
-      user: req.user,
-    });
+    Postblog.find({})
+        .then((postblogs) => {
+          res.render('groundRent', {
+            postblogs: postblogs,
+            user: req.user,
+          });
+        })
+        .catch((err) => {
+          console.log('Error: ', err);
+          throw err;
+        });
   });
   app.get('/landSell', notisAdmin, function(req, res) {
-    res.render('landSell', {
-      user: req.user,
-    });
+    Postblog.find({})
+        .then((postblogs) => {
+          res.render('landSell', {
+            postblogs: postblogs,
+            user: req.user,
+          });
+        })
+        .catch((err) => {
+          console.log('Error: ', err);
+          throw err;
+        });
   });
   app.get('/landRent', notisAdmin, function(req, res) {
-    res.render('landRent', {
-      user: req.user,
-    });
+    Postblog.find({})
+        .then((postblogs) => {
+          res.render('landRent', {
+            postblogs: postblogs,
+            user: req.user,
+          });
+        })
+        .catch((err) => {
+          console.log('Error: ', err);
+          throw err;
+        });
   });
   app.get('/profile', isLoggedIn, function(req, res) {
     res.render('profile', {
@@ -104,7 +178,10 @@ module.exports = function(app, passport) {
   app.get('/admin', isAdmin, function(req, res) {
     Postblog.find({})
         .then((postblogs) => {
-          res.render('admin', {postblogs: postblogs, user: req.user});
+          res.render('admin', {
+            postblogs: postblogs,
+            user: req.user,
+          });
         })
         .catch((err) => {
           console.log('Error: ', err);
@@ -130,9 +207,14 @@ module.exports = function(app, passport) {
     }
   });
   app.get('/indexBlog', isLoggedIn, notisAdmin, (req, res) => {
-    Postblog.find({'user': req.user})
+    Postblog.find({
+      'user': req.user,
+    })
         .then((postblogs) => {
-          res.render('indexBlog', {postblogs: postblogs, user: req.user});
+          res.render('indexBlog', {
+            postblogs: postblogs,
+            user: req.user,
+          });
         })
         .catch((err) => {
           console.log('Error: ', err);
@@ -141,7 +223,9 @@ module.exports = function(app, passport) {
   });
   app.post('/signUp', function(req, res) {
     res.locals.user = req.session.user;
-    User.findOne({'username': req.body.username}, function(err, user) {
+    User.findOne({
+      'username': req.body.username,
+    }, function(err, user) {
       if (err) throw err;
       if (user) {
         req.flash('error2', 'Tên tài khoản đã tồn tại!');
@@ -200,21 +284,47 @@ module.exports = function(app, passport) {
       }
     });
   });
-  app.post('/indexBlog', (req, res) => {
-    const newPostblog = new Postblog({
-      content: req.body.content,
-      price: req.body.price,
-      acreage: req.body.acreage,
-      address: req.body.address,
-      user: req.user,
-    });
-    newPostblog.save().then((doc) => {
-      res.redirect('/indexBlog');
-    })
-        .catch((err) => {
-          console.log('Error: ', err);
-          throw err;
-        });
+  app.post('/imageUser', uploadUser.single('file'), (req, res) => {
+    if (req.file == null) {
+      res.redirect('/profile');
+    } else {
+      User.findOneAndUpdate({
+        'username': req.user.username,
+      }, {
+        $set: {
+          image: req.file.filename,
+        },
+      }, {
+        userFindAndModify: false,
+      })
+          .then((doc) => {
+            res.redirect('/profile');
+          });
+    }
+  });
+  app.post('/indexBlog', uploadPost.single('file'), (req, res) => {
+    if (req.file == null) {
+      res.redirect('/PostBlog');
+    } else {
+      const newPostblog = new Postblog({
+        content: req.body.content,
+        price: req.body.price,
+        acreage: req.body.acreage,
+        address: req.body.address,
+        upload: req.file.filename,
+        role: req.body.role,
+        city: req.body.city,
+        check: false,
+        user: req.user,
+      });
+      newPostblog.save().then((doc) => {
+        res.redirect('/indexBlog');
+      })
+          .catch((err) => {
+            console.log('Error: ', err);
+            res.redirect('/PostBlog');
+          });
+    }
   });
   app.get('/update-Blog/:postblogId', isLoggedIn, notisAdmin, (req, res) => {
     Postblog.findById(req.params.postblogId, (err, postblog) => {
@@ -222,7 +332,22 @@ module.exports = function(app, passport) {
         console.log(err);
         throw err;
       }
-      res.render('updateBlog', {postblog: postblog, user: req.user});
+      res.render('updateBlog', {
+        postblog: postblog,
+        user: req.user,
+      });
+    });
+  });
+  app.get('/update-admin/:postblogId', isLoggedIn, isAdmin, (req, res) => {
+    Postblog.findById(req.params.postblogId, (err, postblog) => {
+      if (err) {
+        console.log(err);
+        throw err;
+      }
+      res.render('adminManage', {
+        postblog: postblog,
+        user: req.user,
+      });
     });
   });
   app.delete('/:postblogId', (req, res) => {
@@ -234,14 +359,93 @@ module.exports = function(app, passport) {
   });
   app.post('/:postblogId', (req, res) => {
     const postblogId = req.params.postblogId;
-    Postblog.findByIdAndUpdate(
-        {_id: postblogId},
-        {$set: {content: req.body.content, price: req.body.price,
-          acreage: req.body.acreage, address: req.body.address}},
-        {userFindAndModify: false})
+    Postblog.findByIdAndUpdate({
+      _id: postblogId,
+    }, {
+      $set: {
+        content: req.body.content,
+        price: req.body.price,
+        acreage: req.body.acreage,
+        address: req.body.address,
+        role: req.body.role,
+        city: req.body.city,
+      },
+    }, {
+      userFindAndModify: false,
+    })
         .then((doc) => {
           res.redirect('/indexBlog');
         });
+  });
+  app.post('/adminManage/:postblogId', (req, res) => {
+    const postblogId = req.params.postblogId;
+    if (req.body.checkTrue) {
+      Postblog.findByIdAndUpdate({
+        _id: postblogId,
+      }, {
+        $set: {
+          check: true,
+        },
+      }, {
+        userFindAndModify: false,
+      })
+          .then((doc) => {
+            res.redirect('/admin');
+          });
+    } else {
+      Postblog.findByIdAndUpdate({
+        _id: postblogId,
+      }, {
+        $set: {
+          check: false,
+        },
+      }, {
+        userFindAndModify: false,
+      })
+          .then((doc) => {
+            res.redirect('/admin');
+          });
+    }
+  });
+  app.post('/', notisAdmin, (req, res) => {
+    if (req.body.search != '') {
+      Postblog.find({'content': {'$regex': req.body.search, '$options': 'i'}})
+          .then((postblogs) => {
+            res.render('search', {
+              postblogs: postblogs,
+              user: req.user,
+            });
+          })
+          .catch((err) => {
+            res.redirect('/');
+          });
+    } else {
+      Postblog.find({'city': req.body.select4, 'role': req.body.select1, 'price': {$gt: (parseInt(req.body.select2 / 10) * 1000000000 - 1), $lt: (parseInt(req.body.select2 % 10) * 1000000000 + 1)}})
+          .then((postblogs) => {
+            res.render('search', {
+              postblogs: postblogs,
+              user: req.user,
+              role: req.body.select1,
+            });
+          })
+          .catch((err) => {
+            if (req.body.select3 != 'million') {
+              Postblog.find({'city': req.body.select4, 'role': req.body.select1, 'price': {$gt: (parseInt(req.body.select3 / 100) * 1000000 - 1), $lt: (parseInt(req.body.select3 % 100) * 1000000 + 1)}})
+                  .then((postblogs) => {
+                    res.render('search', {
+                      postblogs: postblogs,
+                      user: req.user,
+                      role: req.body.select1,
+                    });
+                  })
+                  .catch((err) => {
+                    res.redirect('/');
+                  });
+            } else {
+              res.redirect('/');
+            }
+          });
+    }
   });
 };
 const isLoggedIn = function(req, res, next) {

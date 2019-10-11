@@ -74,7 +74,12 @@
             <h5 style="margin-top: 7px;">Trang đăng ký</h5>
           </div>
           <div class="col-md-3 navbar-toggler-right">
-            <button class="btn btn-warning text-white font-weight-bold">Đăng tin mua/bán nhà</button>
+            <button class="btn btn-warning text-white font-weight-bold" id="PostBlog">Đăng tin mua/bán nhà</button>
+            <script>
+              document.getElementById('PostBlog').onclick = function() {
+                location.href = "/signIn";
+              };
+            </script>
           </div>
         </div>
       </div>

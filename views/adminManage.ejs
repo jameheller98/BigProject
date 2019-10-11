@@ -1,0 +1,93 @@
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Quản lý bài đăng</h1>
+        <form action="/adminManage/<%= postblog._id %>" method="POST">
+            <div class="form-group">
+                <label>PostBlog id</label>
+                <input class="form-control" type="text" name='productId' value="<%= postblog._id %>" disabled>
+            </div>
+            <div class="form-group">
+                <label>Nội dung bài đăng</label>
+                <input class="form-control" type="text" name='content' value="<%= postblog.content %>" disabled>
+            </div>
+            <div class="form-group" style="width:49%; display:inline-block;">
+                <label>Giá</label>
+                <input class="form-control" type="text" name='price' value="<%= postblog.price %> (VND)" disabled>
+            </div>
+            <div class="form-group" style="width:50%; display:inline-block;">
+                <label>Diện tích</label>
+                <input class="form-control" type="text" name='acreage' value="<%= postblog.acreage %> m²" disabled>
+            </div>
+            <div class="form-group">
+                <label>Địa chỉ</label>
+                <input class="form-control" type="text" name='address' value="<%= postblog.address %>" disabled>
+            </div>
+            <div class="form-group">
+                <label>Đường dẫn ảnh</label>
+                <input class="form-control" type="text" name='upload' value="<%= postblog.upload %>" disabled>
+            </div>
+            <div class="form-group" style="width:49%; display:inline-block;">
+              <label>Mục lục</label>
+              <select class="form-control" name="role" disabled>
+                <option value="<%= postblog.role %>">
+                  <% if(postblog.role == 'homeSell') { %>Nhà bán<%}%>
+                  <% if(postblog.role == 'apartmentSell') { %>Căn hộ bán<%}%>
+                  <% if(postblog.role == 'groundSell') { %>Mặt bằng bán<%}%>
+                  <% if(postblog.role == 'landSell') { %>Đất bán<%}%>
+                  <% if(postblog.role == 'homeRent') { %>Nhà thuê<%}%>
+                  <% if(postblog.role == 'apartmentRent') { %>Căn hộ thuê<%}%>
+                  <% if(postblog.role == 'groundRent') { %>Mặt bằng thuê<%}%>
+                  <% if(postblog.role == 'landRent') { %>Đất thuê<%}%>
+                </option>
+              </select>
+            </div>
+            <div class="form-group" style="width:50%; display:inline-block;">
+              <label for="city">Chọn thành phố:</label>
+              <select class="form-control" name="city" disabled>
+                <option value="<%= postblog.city %>">
+                  <% if(postblog.city == 'HoChiMinh') {%>Hồ chí minh<%}%>
+                  <% if(postblog.city == 'DaLat') {%>Đà Lạt<%}%>
+                  <% if(postblog.city == 'HaNoi') {%>Hà Nội<%}%>
+                </option>
+              </select>
+            </div>
+            <script>
+              showAlert = function() {
+                const r = confirm("Nhấn Yes để tiếp tục tiến trình hoặc No để hủy tiến trình")
+                if(r == true) {
+                  return true;
+                }
+                else {
+                  return false;
+                }
+              }
+            </script>
+            <input id="update-btn" class="btn btn-primary" type="submit" name="checkTrue" value="Duyệt" onclick="return showAlert()">
+            <input id="update-btn" class="btn btn-primary" type="submit" value="Bỏ duyệt" onclick="return showAlert()">
+            <input id="update-btn" class="btn btn-secondary" type="button" value="Xóa" onclick="handleDeleteProduct('<%= postblog._id %>')">
+        </form>
+    </div>
+    <script>
+        function handleDeleteProduct(value) {
+          const r = confirm("Nhấn Yes để tiếp tục tiến trình hoặc No để hủy tiến trình")
+          if(r == true) {
+            $.ajax({
+                url: '/' + value,
+                type: 'DELETE',
+                success: function (result) {
+                    $(location).attr('href', '/admin');
+                }
+            })
+          }
+          else {
+            return false;
+          }
+        }
+    </script>
+</body>

@@ -119,6 +119,16 @@
         <div class="profile__content">
           <ul class="profile__ul">
             <% if(user) { %>
+            <form action="/imageUser" enctype="multipart/form-data" method="post">
+            <label class="profile__li" for="file">
+              <% if (user.image) { %>
+                <img class="img-fluid" src="../uploads/user/<%= user.image %>" alt="imgUser"/>
+              <% } else { %>
+                <img class="img-fluid float-left" src="../uploads/user/noImgUser.png" alt="noImgUser"/>
+              <% } %>
+              <span >Đổi ảnh đại diện</span>
+            </label>
+            <input type="file" name="file" id="file">
             <li class="profile__li">
               <span class="profile__span">Tên:</span><div class="profile__user"><%= user.firstname %></div>
             </li>
@@ -137,6 +147,8 @@
             <li class="profile__li">
               <span class="profile__span">Địa chỉ:</span><div class="profile__user"><%= user.address %></div>
             </li>
+            <input type="submit" class="btn btn-dark">
+          </form>
             <% } %>
           </ul>
         </div>

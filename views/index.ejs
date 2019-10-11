@@ -110,10 +110,9 @@
     <div class="container table-search">
       <div class="row">
         <div class="col-md-3" style="height: 310px">
-          <form style="background-color: #e9ecef; padding: inherit; margin: 0; height: 100%;">
+          <form style="background-color: #e9ecef; padding: inherit; margin: 0; height: 100%;" action="/" method="post">
             <div class="form-group">
-              <label style="margin: 3px; color: dimgray;">Nhập vào ô để tìm kiếm<br />nhà đất</label>
-              <div></div>
+              <label style="margin: 3px; color: dimgray;" for="search">Nhập vào ô để tìm kiếm<br />nhà đất</label>
               <input id="search" type="search" name="search" placeholder="Tìm kiếm dự án" />
               <button id="submit" type="image" name="submit">
                 <img src="../images/icon/Find.png" alt="find" width="25px" height="25px" />
@@ -124,80 +123,50 @@
                 <hr class="col-md-3" />
               </div>
               <nav class="navbar navbar-expand-xl navbar-inverse bg-light navbar-light" style="display: block;">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu-child">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
                 <div class="collapse navbar-collapse" id="menu-child">
                   <ul class="navbar-nav" style="font-size: smaller;">
                     <li class="nav-item">
-                      <div class="nav-item dropdown" style="width: 100%">
-                        <a class="nav-link font-weight-bolder dropdown-toggle" href="#">
-                          <input id="select1" type="text" name="select1" value="" disabled placeholder="Mục Lục" />
-                        </a>
-                        <ul class="dropdown-child shadow">
-                          <li><a class="select1" href="#">Danh mục</a></li>
-                          <hr />
-                          <li><a class="select1" href="#">Nhà bán</a></li>
-                          <li><a class="select1" href="#">Đất bán</a></li>
-                          <li><a class="select1" href="#">Căn hộ bán</a></li>
-                          <li><a class="select1" href="#">Mặt bằng bán</a></li>
-                          <li><a class="select1" href="#">Nhà cho thuê</a></li>
-                          <li><a class="select1" href="#">Đất cho thuê</a></li>
-                          <li><a class="select1" href="#">Căn hộ cho thuê</a></li>
-                          <li><a class="select1" href="#">Mặt bằng cho thuê</a></li>
-                        </ul>
-                      </div>
+                      <select class="nav-link" id="select1" name="select1">
+                          <option value="select1">Mục lục</option>
+                          <option value="homeSell">Nhà bán</option>
+                          <option value="landSell">Đất bán</option>
+                          <option value="apartmentSell">Căn hộ bán</option>
+                          <option value="groundSell">Mặt bằng bán</option>
+                          <option value="homeRent">Nhà thuê</option>
+                          <option value="landRent">Đất thuê</option>
+                          <option value="apartmentRent">Căn hộ thuê</option>
+                          <option value="groundRent">Mặt bằng thuê</option>
+                      </select>
                     </li>
-                    <li class="nav-item" id="disabled1">
-                      <div class="nav-item dropdown" style="width: 100%">
-                        <a class="nav-link font-weight-bolder dropdown-toggle" href="#">
-                          <input id="select2" type="text" name="select2" value="" disabled placeholder="Mệnh giá" />
-                        </a>
-                        <ul class="dropdown-child shadow">
-                          <!--Bán-->
-                          <li><a class="select2-1" href="#">1 tỷ &lt;</a></li>
-                          <li><a class="select2-1" href="#">1 tỷ &rarr; 3 tỷ</a></li>
-                          <li><a class="select2-1" href="#">3 tỷ &rarr; 5 tỷ</a></li>
-                          <li><a class="select2-1" href="#">5 tỷ &rarr; 7 tỷ</a></li>
-                          <li><a class="select2-1" href="#">7 tỷ &rarr; 9 tỷ</a></li>
-                          <li><a class="select2-1" href="#">&gt; 11 tỷ</a></li>
-                          <!--Thuê-->
-                          <li><a class="select2-2" href="#">5 triệu &lt;</a></li>
-                          <li><a class="select2-2" href="#">5 triệu &rarr; 10 triệu</a></li>
-                          <li><a class="select2-2" href="#">10 triệu &rarr; 30 triệu</a></li>
-                          <li><a class="select2-2" href="#">30 triệu &rarr; 50 triệu</a></li>
-                          <li><a class="select2-2" href="#">50 triệu &rarr; 70 triệu</a></li>
-                          <li><a class="select2-2" href="#">&gt; 70 triệu</a></li>
-                        </ul>
-                      </div>
+                    <li class="nav-item">
+                      <select class="nav-link" id="select2" name="select2">
+                          <option value="billion">Giá tiền(tỷ)</option>
+                          <option value="1">1 tỷ &lt;</option>
+                          <option value="13">1 tỷ &rarr; 3 tỷ</option>
+                          <option value="35">3 tỷ &rarr; 5 tỷ</option>
+                          <option value="57">5 tỷ &rarr; 7 tỷ</option>
+                          <option value="79">7 tỷ &rarr; 9 tỷ</option>
+                          <option value="11">&gt; 11 tỷ</option>
+                      </select>
                     </li>
-                    <li class="nav-item" id="disabled2">
-                      <div class="nav-item dropdown" style="width: 100%">
-                        <a class="nav-link font-weight-bolder dropdown-toggle" href="#">
-                          <input id="select3" type="text" name="select3" value="" disabled placeholder="Chọn loại" />
-                        </a>
-                        <ul class="dropdown-child shadow">
-                          <!--Nhà bán/thuê-->
-                          <li><a class="select3-1" href="#">Biệt thự</a></li>
-                          <li><a class="select3-1" href="#">Nhà phố</a></li>
-                          <li><a class="select3-1" href="#">Chính chủ</a></li>
-                          <li><a class="select3-1" href="#">Môi giới</a></li>
-                          <li><a class="select3-1" href="#">Nhà khác</a></li>
-                          <!--Đất bán/thuê-->
-                          <li><a class="select3-2" href="#">Đất thổ cư</a></li>
-                          <li><a class="select3-2" href="#">Đất nông nghiệp</a></li>
-                          <li><a class="select3-2" href="#">Đất công nghiệp</a></li>
-                          <li><a class="select3-2" href="#">Đất loại khác</a></li>
-                          <!--Căn hộ bán/thuê-->
-                          <li><a class="select3-3" href="#">Chung cư</a></li>
-                          <li><a class="select3-3" href="#">Chung cư cao cấp</a></li>
-                          <li><a class="select3-3" href="#">Chung cư loại khác</a></li>
-                          <!--Mặt bằng bán bán/thuê-->
-                          <li><a class="select3-4" href="#">Mặt bằng văn phòng</a></li>
-                          <li><a class="select3-4" href="#">Mặt bằng bán lẻ</a></li>
-                          <li><a class="select3-4" href="#">Mặt bằng khác</a></li>
-                        </ul>
-                      </div>
+                    <li class="nav-item">
+                      <select class="nav-link" id="select3" name="select3">
+                          <option value="million">Giá tiền(triệu)</option>
+                          <option value="5">5 triệu &lt;</option>
+                          <option value="510">5 triệu &rarr; 10 triệu</option>
+                          <option value="1030">10 triệu &rarr; 30 triệu</option>
+                          <option value="3050">30 triệu &rarr; 50 triệu</option>
+                          <option value="5070">50 triệu &rarr; 70 triệu</option>
+                          <option value="70">&gt; 70 triệu</option>
+                      </select>
+                    </li>
+                    <li class="nav-item">
+                      <select class="nav-link" id="select4" name="select4">
+                          <option value="city">Thành phố</option>
+                          <option value="HoChiMinh">Hồ Chí Minh</option>
+                          <option value="DaLat">Đà Lạt</option>
+                          <option value="HaNoi">Hà Nội</option>
+                      </select>
                     </li>
                   </ul>
                 </div>
@@ -566,7 +535,6 @@
   <script src="../bootstrap-4/js/scroll-head.js" type="text/javascript"></script>
   <script src="../bootstrap-4/js/Disabled-img.js" type="text/javascript"></script>
   <script src="../bootstrap-4/js/Created-img.js" type="text/javascript"></script>
-  <script src="./bundle.js"></script>
 </body>
 
 </html>

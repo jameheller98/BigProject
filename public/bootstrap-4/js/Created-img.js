@@ -1,12 +1,12 @@
 function createLI() {
     if(window.innerWidth <= 550)
         for(i=1; i<4; i++) {
-            var element = document.createElement("li");
-            var parent = document.getElementById("slide-button");
-            parent.appendChild(element);
-            element.id="slide" + i;
-            $("#slide" + i).attr("data-target", "#slide");
-            $("#slide" + i).attr("data-slide-to", 2 + i);
+            var element = document.createElement("li"); // tạo element li gán cho biến element
+            var parent = document.getElementById("slide-button"); // lấy element có id slide-button gán cho parent
+            parent.appendChild(element); // thêm phần tử li vào sau phần tử parent
+            element.id="slide" + i; // gán id cho từng li
+            $("#slide" + i).attr("data-target", "#slide"); //thêm data-target="#slide" cho từng phần tử li có id slide[i]
+            $("#slide" + i).attr("data-slide-to", 2 + i); //thêm data-slide-to=2+i cho từng phần tử li có id slide[i]
         }
 }
 
@@ -40,7 +40,7 @@ function createDIV2() {
         element.id="img2-2";
         img.src="../images/concat/HolyLand2.png";
         img.width="540";
-        img.height="340"; 
+        img.height="340";
         img.style.maxWidth="100%";
     }
 }
@@ -56,7 +56,7 @@ function createDIV3() {
         element.id="img3-2";
         img.src="../images/concat/GreenBayGarden2.jpg";
         img.width="540";
-        img.height="340";  
+        img.height="340";
         img.style.maxWidth="100%";
-    }      
+    }
 }

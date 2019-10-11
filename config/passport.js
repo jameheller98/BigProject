@@ -31,7 +31,7 @@ module.exports = function(passport) {
     });
   }));
 
-  passport.serializeUser(function(user, done) {
+  passport.serializeUser(function(user, done) {// lưu giá trị người dùng
     done(null, user.id);
   });
 
